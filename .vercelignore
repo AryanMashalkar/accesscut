@@ -1,0 +1,7 @@
+.sites-runtime
+.git
+.wrangler
+dist
+outputs
+work
+node_modules
