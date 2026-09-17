@@ -1,8 +1,8 @@
 import type {Metadata} from 'next';
-export const metadata:Metadata={title:'AccessCut — 74-second prototype demo',description:'Watch AccessCut compute accessible routes and compare single repairs in a real working prototype.'};
+export const metadata:Metadata={title:'AccessCut — 72-second prototype demo',description:'Watch AccessCut compute accessible routes and compare single repairs in a real working prototype.'};
 export default function Demo(){return <main style={{maxWidth:1100,padding:'40px 24px'}}>
  <a href="/" style={{color:'#24785a',fontWeight:700,textDecoration:'none'}}>← Open the interactive AccessCut prototype</a>
- <div className="eyebrow" style={{marginTop:35}}>PROTOTYPE WALKTHROUGH · ABOUT 74 SECONDS</div>
+ <div className="eyebrow" style={{marginTop:35}}>PROTOTYPE WALKTHROUGH · ABOUT 72 SECONDS</div>
  <h1>One repair. More places within reach.</h1>
  <p style={{color:'#647480',lineHeight:1.7,marginBottom:24}}>A captioned recording of the working app: change the scenario, compare repairs, inspect routes, and export the evidence. No sign-in required.</p>
  <video controls playsInline preload="metadata" poster="/demo-poster.jpg" aria-label="AccessCut prototype walkthrough with on-screen captions" style={{width:'100%',borderRadius:12,background:'#173a31',border:'1px solid #dce3e7'}}><source src="/accesscut-demo.mp4" type="video/mp4"/>Your browser cannot play this video. <a href="/accesscut-demo.mp4">Download the MP4.</a></video>

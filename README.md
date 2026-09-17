@@ -4,7 +4,7 @@
 
 **[Open the live prototype](https://accesscut.vercel.app)** · **[Watch the short demo](https://accesscut.vercel.app/demo)** · **[Download the MP4](https://accesscut.vercel.app/accesscut-demo.mp4)**
 
-The live app and video are public and require no account. The video is an approximately 74-second, captioned screen recording of the working production build (no narration).
+The live app and video are public and require no account. The video is an approximately 72-second, captioned screen recording of the working production build (no narration).
 
 **Try the hero moment:** keep the default Step-free profile and click **Find best single repair**. Preview Lift B to see reachable destinations increase from **3/6 to 5/6**. Apply it, reset, then select Wide wheelchair to see width constraints change the ranking.
 
