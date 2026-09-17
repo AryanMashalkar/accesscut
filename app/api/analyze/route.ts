@@ -1,0 +1,2 @@
+import {analyze,validateScenario} from '@/lib/accesscut';
+export async function POST(request:Request){try{const body=await request.text();if(body.length>10000)return Response.json({error:'Request too large'},{status:413});return Response.json(analyze(validateScenario(JSON.parse(body))),{headers:{'Cache-Control':'no-store'}});}catch(e){return Response.json({error:e instanceof Error?e.message:'Invalid scenario'},{status:400});}}
