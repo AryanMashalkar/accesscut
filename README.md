@@ -1,5 +1,15 @@
 # AccessCut
 
+## For judges
+
+**[Open the live prototype](https://accesscut.vercel.app)** · **[Watch the short demo](https://accesscut.vercel.app/demo)** · **[Download the MP4](https://accesscut.vercel.app/accesscut-demo.mp4)**
+
+The live app and video are public and require no account. The video is an approximately 74-second, captioned screen recording of the working production build (no narration).
+
+**Try the hero moment:** keep the default Step-free profile and click **Find best single repair**. Preview Lift B to see reachable destinations increase from **3/6 to 5/6**. Apply it, reset, then select Wide wheelchair to see width constraints change the ranking.
+
+![AccessCut prototype](public/demo-poster.jpg)
+
 An interactive campus accessibility repair planner. Select an access profile and origin, mark connections unavailable, and compare every single reopening by the number of newly reachable destinations. Inspect the shortest supported route and export the current analysis as JSON.
 
 ## Run
@@ -11,13 +21,17 @@ npm ci
 npm run dev
 ```
 
-Open the local URL printed by the server. Production: `npm run build`, then `npm start` (local Worker runtime). Sites hosts the built Cloudflare Worker and assets. No paid map API, ML service, API key, GPU, or database is needed.
+Open the local URL printed by the server. For the Vercel/Next.js runtime use `npm run dev:vercel`, or `npm run build:vercel` followed by `npm run start:vercel`. The original Worker runtime remains available through `npm run build` and `npm start`. No paid map API, ML service, API key, GPU, or database is needed.
+
+## Hosting
+
+Production is hosted on Vercel at **https://accesscut.vercel.app**. `vercel.json` selects the standard Next.js build and this repository is connected to the Vercel project for Git deployments. `/api/analyze` runs server-side. The demo is hosted at `/demo` and its MP4 is served directly from `public/`.
 
 ## Architecture
 
 React + TypeScript interface → POST `/api/analyze` → scenario validation → graph filtering → Dijkstra shortest paths → exhaustive single-repair comparison → SVG map and ranked explanations.
 
-The deployment uses a TypeScript server route, rather than FastAPI, so the complete app runs in one Cloudflare Worker. `lib/accesscut.ts` contains the synthetic fixture and deterministic engine. `app/api/analyze/route.ts` is the server boundary. There are no model confidence scores or learned inferences.
+The deployment uses a TypeScript server route, rather than FastAPI, so the complete app runs within the Next.js deployment. The same source also supports the original Cloudflare Worker build. `lib/accesscut.ts` contains the synthetic fixture and deterministic engine. `app/api/analyze/route.ts` is the server boundary. There are no model confidence scores or learned inferences.
 
 The undirected fixture has 12 nodes, 14 connections, six destinations, three repairable closures, and three access profiles. Dimensions and distances are invented, not surveyed. The map is schematic. This is a planning demonstration, not real navigation guidance or accessibility certification.
 
@@ -53,7 +67,7 @@ POST this JSON to `/api/analyze`. Returns scenario, fixture version, reachable c
 
 ## Submission
 
-See `DEMO.md` for the recording outline. Publish this source to your public GitHub repository before submitting; the Sites source repository is not a public GitHub submission. Confirm the live site's audience allows judges to open it. No video has been recorded automatically.
+Use the live prototype and demo links at the top of this README. This repository is public. `public/accesscut-demo.mp4` contains the recorded short walkthrough; `DEMO.md` also retains an optional longer presentation outline. The recorded walkthrough uses real browser interactions and computed API responses; its captions are recording annotations, not app features.
 
 ## Known scope limits
 
